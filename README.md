@@ -1,11 +1,11 @@
-# SWE573 SOFTWARE DEVELOPMENT PRACTISE
+# SWE573 SOFTWARE DEVELOPMENT PRACTICE
 
 This repository has been created for **SWE573** lecture. It is a guidance for this semester. I will put each assignment, due dates and instructions to complete tasks. 
 
 
 ## Introduction
 
-SWE573 is software development practise lecture. There are assignments weekly and I will complete each tasks while I am sharing my works here.
+SWE573 is software development practice lecture. There are assignments weekly and I will complete each tasks while I am sharing my works here.
 
 ## Lecture Syllabus
 
