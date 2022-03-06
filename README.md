@@ -6,13 +6,6 @@ This repository has been created for **SWE573** lecture at Boğaziçi University
 
 SWE573 is software development practice lecture. There are assignments weekly and I will complete each tasks while I am sharing my works here.
 
-## Lecture Syllabus
-
- 1. Introduction, Logistics, Overview
- 2. Effective use of Software Development Tools
- 3. .
- 4. .
-
 ## Assignments Content
 
 ### Week 1
