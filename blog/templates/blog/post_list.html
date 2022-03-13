@@ -9,17 +9,12 @@
         <header>
             <h1><a href="/">Serdar Tries Django</a></h1>
         </header>
-
+        {% for post in posts %}
         <article>
-            <time>published: 13.03.2022, 20:30</time>
-            <h2><a href="">What I do</a></h2>
-            <p>I am trying to build a web application right now</p>
-        </article>
-
-        <article>
-            <time>published: 13.03.2022, 20:31</time>
-            <h2><a href="">Status</a></h2>
-            <p>Let's see where it goes</p>
-            </article>
+            <time>published: {{post.published_date}}</time>
+            <h2><a href="">{{post.title}}</a></h2>
+            <p>{{post.text|linebreaksbr}}</p>
+        <artcile>
+        {% endfor %}
     </body>
 </html>
