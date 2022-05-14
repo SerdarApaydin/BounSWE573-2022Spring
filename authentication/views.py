@@ -54,7 +54,7 @@ def signup(request):
         # Welcome Email
 
         subject = "Welcome to LearnCommune!"
-        message = "Hello" + siteUser.username + ", \n\n" + "Welcome to LearnCommune! \n Thank you for joining us. \n We have sent you a confirmation email, please confirm your email address to activate your account. \n\n Thank you"
+        message = "Hello " + siteUser.username + ", \n\n" + "Welcome to LearnCommune! \nThank you for joining us. \nWe have sent you a confirmation email, please confirm your email address to activate your account. \n\n Thank you"
         from_email = settings.EMAIL_HOST_USER
         to_list = [siteUser.email]
         send_mail(subject, message, from_email, to_list, fail_silently=True)
@@ -69,14 +69,7 @@ def signup(request):
             'uid' : urlsafe_base64_encode(force_bytes(siteUser.pk)),
             'token' : generate_token.make_token(siteUser)
         })
-        email = EmailMessage(
-            email_subject,
-            message2,
-            settings.EMAIL_HOST_USER,
-            [siteUser.email],
-        )
-        email.fail_silently = True
-        email.send()
+        send_mail(email_subject, message2, settings.EMAIL_HOST_USER, [siteUser.email], fail_silently=True)
 
         return redirect('signin')
 
