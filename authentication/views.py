@@ -12,13 +12,16 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
+from space.models import Space
 from . tokens import generate_token
 from django.core.mail import EmailMessage, send_mail
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'authentication/index.html')
+    spaces = Space.objects.all()
+    print(spaces)
+    return render(request, template_name='index.html' , context={"spaces" : spaces})
 
 def signup(request):
 
@@ -86,7 +89,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             username = user.username
-            return render(request, "authentication/index.html", {'username': username})
+            return render(request, "index.html", {'username': username})
 
         else:
             messages.error(request, "Bad Credentials!")
@@ -97,7 +100,6 @@ def signin(request):
 
 def signout(request):
     logout(request)
-    messages.success(request, 'Logged out successfully')
     return redirect('home')
 
 def activate(request, uidb64, token):
