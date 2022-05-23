@@ -6,5 +6,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home , name= 'home'),
-    path('space/<int:spaceId>', views.spacePage , name= 'spacePage'),
+    path('space/<int:id>', views.spacePage , name= 'spacePage'),
+    path('space/<int:id>/upload', views.uploadContent , name= 'uploadContent'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

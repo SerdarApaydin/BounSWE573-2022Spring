@@ -31,16 +31,13 @@
 </nav>
 
 <html>
-  
-  
-  <div class="row">
-    <div class="col mx-auto">
-      {% for element in learningMaterials %}
-          {{ element }}
-      {% endfor %}
-    </div>
+
   <div class="mt-5">
-    <a class="nav-link active" aria-current="page" href="/space/{{space.id}}/upload">Upload a video</a>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-success btn-lg">Upload</button>
+    </form>
   </div>
 
 </html>
