@@ -1,8 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
-from space.models import LearningMaterialVideos
+from space.models import LearningMaterials
 
-class Video_form(forms.ModelForm):
+class Material_form(forms.ModelForm):
     class Meta:
-        model=LearningMaterialVideos
-        fields=("title","space","sequence","video")
+        model=LearningMaterials
+        fields=("title","space","sequence","material")

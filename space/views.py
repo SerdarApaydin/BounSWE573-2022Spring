@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from space.models import LearningMaterialVideos, Space
-from space.forms import Video_form
+from space.models import LearningMaterials, Space
+from space.forms import Material_form
 
 # Create your views here.
 def home(request):
@@ -11,7 +11,7 @@ def home(request):
 
 def spacePage(request, id):
     space = Space.objects.get(id = id)
-    learningMaterials = LearningMaterialVideos.objects.filter(space = space)
+    learningMaterials = LearningMaterials.objects.filter(space = space)
     context = {
         'space' : space,
         'learningMaterials' : learningMaterials
@@ -20,10 +20,10 @@ def spacePage(request, id):
 
 def uploadContent(request,id):
     if request.method == "POST":
-        form = Video_form(data=request.POST, files=request.FILES)
+        form = Material_form(data=request.POST, files=request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponse("<h4>Uploaded succcessfully<h4>")
     else:
-        form = Video_form()
+        form = Material_form()
     return render(request,'space/upload_file.html',{"form":form})

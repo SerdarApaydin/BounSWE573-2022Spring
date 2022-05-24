@@ -18,11 +18,11 @@ class Tag(models.Model):
     def __str__(self):
         return self.description
 
-class LearningMaterialVideos(models.Model):
+class LearningMaterials(models.Model):
     title = models.CharField(max_length= 128, null=False)
     space = models.ForeignKey(Space, on_delete=models.CASCADE)
     sequence = models.IntegerField(null = False)
-    video = models.FileField(upload_to = "space/videos")
+    material = models.FileField(upload_to = "space/materials")
 
     def __str__(self):
         return self.title
