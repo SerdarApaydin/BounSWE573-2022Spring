@@ -19,7 +19,6 @@ class Post(models.Model):
     def __str__(self) :
         return self.title
 
-# Create your models here.
 
 class Answer(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
