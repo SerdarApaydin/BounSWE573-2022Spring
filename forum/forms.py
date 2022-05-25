@@ -10,5 +10,5 @@ class Post_form(forms.ModelForm):
 class Answer_form(forms.ModelForm):
     class Meta:
         model = Answer
-        fields = ("text")
+        fields = ("text",)
         
