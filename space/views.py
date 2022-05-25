@@ -9,8 +9,8 @@ def home(request):
     print(spaces)
     return render(request, template_name='index.html' , context={"spaces" : spaces})
 
-def spacePage(request, id):
-    space = Space.objects.get(id = id)
+def spacePage(request, space_id):
+    space = Space.objects.get(id = space_id)
     learningMaterials = LearningMaterials.objects.filter(space = space)
     context = {
         'space' : space,
@@ -18,7 +18,8 @@ def spacePage(request, id):
     }
     return render(request, template_name="space/space_page.html" , context = context)
 
-def uploadContent(request,id):
+def uploadContent(request,space_id):
+    space = Space.objects.get(id = space_id)
     if request.method == "POST":
         form = Material_form(data=request.POST, files=request.FILES)
         if form.is_valid():
@@ -26,4 +27,4 @@ def uploadContent(request,id):
             return HttpResponse("<h4>Uploaded succcessfully<h4>")
     else:
         form = Material_form()
-    return render(request,'space/upload_file.html',{"form":form})
+    return render(request,'space/upload_file.html',{"form":form , "space":space})
