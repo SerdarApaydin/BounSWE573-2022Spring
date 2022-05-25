@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication.apps.AuthenticationConfig',
     'space.apps.SpaceConfig',
+    'forum.apps.ForumConfig',
 ]
 
 MIDDLEWARE = [
