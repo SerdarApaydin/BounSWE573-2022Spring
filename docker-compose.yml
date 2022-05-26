@@ -6,7 +6,7 @@ services:
     - .:/django
    ports:
     - 8000:8000
-   image: app:django
+   image: app:django_deploy
    container_name: django_container
    command: python manage.py runserver 0.0.0.0:8000
    depends_on:
