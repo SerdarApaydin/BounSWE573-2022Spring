@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 
 {% include 'space/space_navbar.html' %}
 
 <html>
-  <div class="row">
-    <div class="col mx-auto">
-      {% for element in posts %}
-          {{ element }}
-      {% endfor %}
-    </div>
-  <div class="mt-5">
-    <a class="btn btn-success btn-lg" aria-current="page" href="{{ request.get_full_path }}create_post">Create a Post</a>
+  <div class="mt-3">
+    <a class="btn btn-success btn-sm" aria-current="page" href="/space/{{space.id}}/forum/create_post">Create a Post</a>
   </div>
 
+  {% if posts %}
+  <div class="subforum-title">
+      <h1>{{space.title}} General Discussion</h1>
+  </div>
+    {% for element in posts %}
+    <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
+      <div class="row align-items-center">
+        <div class="col-md-8 mb-3 mb-sm-0">
+          <h5>
+            <a href="{{request.get_full_path}}{{element.id}}" class="text-primary">{{element.title}}</a>
+          </h5>
+          <p class="text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{element.published_date}}</a> <a class="text-black" href="#">{{element.author}}</a></p>
+          <div class="text-sm op-5"> <a class="text-black mr-2" href="#"></a> <a class="text-black mr-2" href="#"></a> <a class="text-black mr-2" href="#"></a> </div>
+        </div>
+        <div class="col-md-4 op-7">
+          <div class="row text-center op-7">
+            <div class="col px-1"> <i class="ion-connection-bars icon-1x"></i> <span class="d-block text-sm"></span> </div>
+            <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm"></span> </div>
+            <div class="col px-1"> <i class="ion-ios-eye-outline icon-1x"></i> <span class="d-block text-sm"></span> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+  <div class="subforum-title">
+      <h1><i class="fa fa-frown-o"></i>&nbsp;you have no posts yet.</h1>
+  </div>
+  {% endif %}
 </html>
