@@ -13,6 +13,15 @@
         <li class="nav-item">   
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
+        {% if request.get_full_path == "/space/{{space.id}}" %}
+          <li class="nav-item">   
+            <a class="nav-link active" aria-current="page" href="#">Space</a>
+          </li>
+        {% else %}
+          <li class="nav-item">   
+            <a class="nav-link active" aria-current="page" href="/space/{{space.id}}">Space</a>
+          </li>
+        {% endif %}
         {% if request.get_full_path == "/space/{{space.id}}/forum" %}
           <li class="nav-item">   
             <a class="nav-link active" aria-current="page" href="#">Forum</a>
@@ -20,6 +29,15 @@
         {% else %}
           <li class="nav-item">   
             <a class="nav-link active" aria-current="page" href="/space/{{space.id}}/forum">Forum</a>
+          </li>
+        {% endif %}
+        {% if request.get_full_path == "/space/{{space.id}}/quizes" %}
+          <li class="nav-item">   
+            <a class="nav-link active" aria-current="page" href="#">Quizes</a>
+          </li>
+        {% else %}
+          <li class="nav-item">   
+            <a class="nav-link active" aria-current="page" href="/space/{{space.id}}/quizes">Quizes</a>
           </li>
         {% endif %}
       </ul>
