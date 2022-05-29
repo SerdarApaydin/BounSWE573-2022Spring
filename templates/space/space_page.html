@@ -5,16 +5,25 @@
 {% include 'space/space_navbar.html' %}
 
 <html>
-  
+  <div class="col mx-auto">
+    <div class="card mx-auto" style="width: auto;">
+        <img src={{space.spaceImage.url}} class="rounded float-left" alt="..." style="width: 200px">
+        <div class="card-body">
+        <h5 class="card-title">{{space.name}}</h5>
+        <p class="card-text">{{space.description}}</p>
+        </div>
+    </div>
+  </div>
   
   <div class="row">
-    <div class="col mx-auto">
+    <ul class="list-group list-group-flush">
       {% for element in learningMaterials %}
-          {{ element }}
+      <a href="" class="list-group-item list-group-item-action">element</a>
       {% endfor %}
+    </ul>
     </div>
   <div class="mt-5">
-    <a class="btn btn-success btn-lg" aria-current="page" href="/space/{{space.id}}/upload">Upload a material</a>
+    <a class="btn btn-success btn-sm" aria-current="page" href="/space/{{space.id}}/upload">Upload a material</a>
   </div>
 
 </html>
