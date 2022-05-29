@@ -22,4 +22,5 @@ urlpatterns = [
     path('',include('authentication.urls')),
     path('',include('space.urls')),
     path('',include('forum.urls')),
+    path('',include('quiz.urls')),
 ]

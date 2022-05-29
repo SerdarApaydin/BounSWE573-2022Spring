@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'space.apps.SpaceConfig',
     'forum.apps.ForumConfig',
+    'quiz.apps.QuizConfig',
 ]
 
 MIDDLEWARE = [
