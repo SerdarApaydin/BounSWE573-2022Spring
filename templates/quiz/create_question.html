@@ -8,8 +8,8 @@
   <div class="mt-5">
     <form action="" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form_quiz.as_p }}
-      <button class="btn btn-success btn-sm" href="/space/{{space.id}}/quizes/{{quiz.id}}">Create a Quiz</button>
+      {{ form_question.as_p }}
+      <button class="btn btn-success btn-sm" href="/space/{{space.id}}/quizes/{{quiz.id}}">Create a question</button>
     </form>
   </div>
 </html>

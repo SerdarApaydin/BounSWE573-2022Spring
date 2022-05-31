@@ -6,10 +6,7 @@
 
 <html>
   <div class="mt-5">
-    <form action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form_quiz.as_p }}
-      <button class="btn btn-success btn-sm" href="/space/{{space.id}}/quizes/{{quiz.id}}">Create a Quiz</button>
-    </form>
+    <a class="list-group-item list-group-item-action"> Correct answers : {{correct_answers}}</a>
+    <a class="list-group-item list-group-item-action"> Total Score : {{total_score}}</a>
   </div>
 </html>
